@@ -1,28 +1,16 @@
-import React from 'react'
-import backgroundImage from './assets/bg1.webp'
-import WeddingBook from './Components/WeddingBook'
-import Container from '@mui/material/Container'
+import React, { useState } from 'react'
 import Home from './Components/Home'
+import { useTheme } from '@mui/material/styles'
+import WeddingBook from './Components/WeddingBook'
 
-function App() {
+function App () {
+  const [route, setRoute] = useState('')
+
   return (
-    <Container
-      maxWidth={false}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        width: '100vw',
-        padding: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {/* <WeddingBook /> */}
-      <Home />
-    </Container>
+    <>
+      {route === '' && <Home setRoute={setRoute} />}
+      {route === 'gallery' && <WeddingBook setRoute={setRoute} />}
+    </>
   )
 }
 
