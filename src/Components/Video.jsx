@@ -1,14 +1,11 @@
 import React from 'react'
-import HTMLFlipBook from 'react-pageflip'
-import { imageList } from '../imageList'
-import Card from '@mui/material/Card'
-import CardMedia from '@mui/material/CardMedia'
+import { Box, Button } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import backgroundImageDesktop from '../assets/bg11.webp'
 import backgroundImageMobile from '../assets/bg10.webp'
-import { Box, Button } from '@mui/material'
 
-function WeddingBook ({ setRoute }) {
+function Video ({ setRoute }) {
+  // Use media query to check if the screen is small (mobile)
   const isMobile = useMediaQuery('(max-width:900px)')
 
   return (
@@ -21,8 +18,8 @@ function WeddingBook ({ setRoute }) {
         backgroundPosition: 'center',
         width: '100%',
         height: '100vh',
-        display: 'flex',
         paddingTop: '5rem',
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         padding: isMobile ? '10px' : '0', // Add padding on mobile
@@ -58,10 +55,11 @@ function WeddingBook ({ setRoute }) {
         >
           Home
         </Button>
+
         <Button
-          onClick={() => setRoute('video')}
           variant='outlined'
           size='large'
+          onClick={() => setRoute('gallery')}
           sx={{
             borderColor: 'white',
             zIndex: '10',
@@ -79,7 +77,7 @@ function WeddingBook ({ setRoute }) {
             }
           }}
         >
-          video
+          Gallery
         </Button>
 
         <Button
@@ -103,8 +101,9 @@ function WeddingBook ({ setRoute }) {
             }
           }}
         >
-          Gallery
+          Video
         </Button>
+
         <Button
           variant='outlined'
           size='large'
@@ -128,6 +127,7 @@ function WeddingBook ({ setRoute }) {
         >
           Venue
         </Button>
+
         <Button
           variant='outlined'
           size='large'
@@ -152,43 +152,21 @@ function WeddingBook ({ setRoute }) {
           Events
         </Button>
       </Box>
-      <HTMLFlipBook
-        width={isMobile ? window.innerWidth * 0.45 : window.innerWidth * 0.4} // Adjust width for mobile and desktop
-        height={isMobile ? 250 : 500} // Adjust height for mobile and desktop
-        style={{
-          width: '100%',
-          height: '100%',
-          maxWidth: isMobile ? '48vw' : '95vw', // Responsive max-width
-          maxHeight: '80vh' // Prevent flipbook from going beyond viewport height
-        }}
-      >
-        {imageList.map((image, index) => (
-          <div key={index} className='page' style={{ height: '100%' }}>
-            <Card
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: 10,
-                backgroundColor: 'transparent'
-              }}
-            >
-              <CardMedia
-                component='img'
-                image={image}
-                alt={`Page ${index + 1}`}
-                sx={{
-                  height: '100%',
-                  width: '100%',
-                  objectFit: 'cover'
-                }}
-              />
-            </Card>
-          </div>
-        ))}
-      </HTMLFlipBook>
+
+      {/* YouTube Video Embed */}
+      <Box sx={{ zIndex: 1 }}>
+        <iframe
+          width='100%'
+          height={isMobile ? '250' : '1000'}
+          src='https://www.youtube.com/embed/7gvYDNesZ8w'
+          title='Wedding Video'
+          frameBorder='0'
+          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        ></iframe>
+      </Box>
     </div>
   )
 }
 
-export default WeddingBook
+export default Video
