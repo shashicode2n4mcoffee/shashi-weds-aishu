@@ -127,7 +127,9 @@ function WeddingBook ({ setRoute }) {
             }
           }}
         >
-          Venue
+          <a href='https://maps.app.goo.gl/MFDRXrwfYoGXNcybA' target='_blank'>
+            <div class='venue'>VENUE</div>
+          </a>
         </Button>
         <Button
           variant='outlined'
