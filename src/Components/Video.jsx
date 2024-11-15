@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button } from '@mui/material'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import backgroundImageDesktop from '../assets/bg11.webp'
@@ -7,7 +7,23 @@ import backgroundImageMobile from '../assets/bg10.webp'
 function Video ({ setRoute }) {
   // Use media query to check if the screen is small (mobile)
   const isMobile = useMediaQuery('(max-width:900px)')
+  const [video, setVideo] = useState(0)
 
+  const getVideo = () => {
+    if (video === 0) {
+      return 'https://www.youtube.com/embed/7gvYDNesZ8w'
+    } else if (video === 1) {
+      return 'https://www.youtube.com/embed/QQMXKr7meS4'
+    }
+    if (video === 2) {
+      return 'https://www.youtube.com/embed/Y3sSXMnbWro'
+    }
+    if (video === 3) {
+      return 'https://www.youtube.com/embed/8Z68xMyE0uA'
+    }
+
+    return 'https://www.youtube.com/embed/7gvYDNesZ8w'
+  }
   return (
     <div
       style={{
@@ -55,7 +71,6 @@ function Video ({ setRoute }) {
         >
           Home
         </Button>
-
         <Button
           variant='outlined'
           size='large'
@@ -79,7 +94,6 @@ function Video ({ setRoute }) {
         >
           Gallery
         </Button>
-
         <Button
           variant='outlined'
           size='large'
@@ -103,7 +117,6 @@ function Video ({ setRoute }) {
         >
           Video
         </Button>
-
         <Button
           variant='outlined'
           size='large'
@@ -127,7 +140,6 @@ function Video ({ setRoute }) {
         >
           Venue
         </Button>
-
         <Button
           variant='outlined'
           size='large'
@@ -151,6 +163,99 @@ function Video ({ setRoute }) {
         >
           Events
         </Button>
+        <Button
+          variant='outlined'
+          size='large'
+          onClick={() => setVideo(0)}
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            left: '17%',
+            bottom: '18%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          Pre-Wedding
+        </Button>
+        <Button
+          variant='outlined'
+          size='large'
+          onClick={() => setVideo(1)}
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            right: '17%',
+            bottom: '18%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          Retro Video
+        </Button>
+        <Button
+          variant='outlined'
+          size='large'
+          onClick={() => setVideo(2)}
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            right: '17%',
+            bottom: '5%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          Haldi and Devakarya
+        </Button>
+        ;
+        <Button
+          variant='outlined'
+          size='large'
+          onClick={() => setVideo(3)}
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            left: '17%',
+            bottom: '5%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          Bangles ceremony
+        </Button>
       </Box>
 
       {/* YouTube Video Embed */}
@@ -158,7 +263,7 @@ function Video ({ setRoute }) {
         <iframe
           width='100%'
           height={isMobile ? '250' : '1000'}
-          src='https://www.youtube.com/embed/7gvYDNesZ8w'
+          src={getVideo()}
           title='Wedding Video'
           frameBorder='0'
           allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'

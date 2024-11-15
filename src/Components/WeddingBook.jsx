@@ -6,6 +6,8 @@ import CardMedia from '@mui/material/CardMedia'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import backgroundImageDesktop from '../assets/bg11.webp'
 import backgroundImageMobile from '../assets/bg10.webp'
+import gallery from '../assets/DSC06303.JPG'
+
 import { Box, Button } from '@mui/material'
 
 function WeddingBook ({ setRoute }) {
@@ -81,7 +83,6 @@ function WeddingBook ({ setRoute }) {
         >
           video
         </Button>
-
         <Button
           variant='outlined'
           size='large'
@@ -151,42 +152,84 @@ function WeddingBook ({ setRoute }) {
         >
           Events
         </Button>
+        ;
+        <Button
+          variant='outlined'
+          size='large'
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            right: '17%',
+            bottom: '18%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          <a
+            href='https://drive.google.com/drive/folders/1xnl3xw3F8lMO3EXMEuOq6Z1OSaqeSXlo?usp=sharing'
+            target='_blank'
+          >
+            Pre Wedding Pictures
+          </a>
+        </Button>
+        ;
+        <Button
+          variant='outlined'
+          size='large'
+          sx={{
+            borderColor: 'white',
+            borderRadius: '20px',
+            position: 'absolute',
+            zIndex: '10',
+            left: '17%',
+            bottom: '18%',
+            color: '#325b32',
+            width: '7rem',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: 'white',
+              boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.5)'
+            }
+          }}
+        >
+          <a
+            href='https://drive.google.com/drive/folders/1j-Sei43rwbeiFxTOh2NVu8iQgDJVMhr-?usp=sharing'
+            target='_blank'
+          >
+            Devakarya + Haldi Pictures
+          </a>
+        </Button>
       </Box>
-      <HTMLFlipBook
-        width={isMobile ? window.innerWidth * 0.45 : window.innerWidth * 0.4} // Adjust width for mobile and desktop
-        height={isMobile ? 250 : 500} // Adjust height for mobile and desktop
-        style={{
-          width: '100%',
-          height: '100%',
-          maxWidth: isMobile ? '48vw' : '95vw', // Responsive max-width
-          maxHeight: '80vh' // Prevent flipbook from going beyond viewport height
+      <Card
+        sx={{
+          height: '30%',
+          display: 'flex',
+          flexDirection: 'column',
+          boxShadow: 10,
+          backgroundColor: 'transparent',
+          position: 'absolute'
         }}
       >
-        {imageList.map((image, index) => (
-          <div key={index} className='page' style={{ height: '100%' }}>
-            <Card
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: 10,
-                backgroundColor: 'transparent'
-              }}
-            >
-              <CardMedia
-                component='img'
-                image={image}
-                alt={`Page ${index + 1}`}
-                sx={{
-                  height: '100%',
-                  width: '100%',
-                  objectFit: 'cover'
-                }}
-              />
-            </Card>
-          </div>
-        ))}
-      </HTMLFlipBook>
+        <CardMedia
+          component='img'
+          image={gallery}
+          alt='Shashi weds Aishu'
+          sx={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain'
+          }}
+        />
+      </Card>
     </div>
   )
 }

@@ -177,14 +177,14 @@ export default function TimelineW ({ setRoute }) {
       >
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot />
+            <TimelineDot color='success' />
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>Nov 14 : Devkarya function</TimelineContent>
         </TimelineItem>
         <TimelineItem>
           <TimelineSeparator>
-            <TimelineDot />
+            <TimelineDot color='success' />
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>Nov 15 : Mehandi function</TimelineContent>
